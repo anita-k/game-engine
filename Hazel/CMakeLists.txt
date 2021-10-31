@@ -8,9 +8,11 @@ set(CMAKE_CXX_STANDARD 20)
 add_compile_definitions(HZ_PLATFORM_WINDOWS)
 add_compile_definitions(HZ_BUILD_DLL)
 
-
-add_library(${PROJECT_NAME} SHARED Application.cpp)
+add_library(${PROJECT_NAME} SHARED Application.cpp Log.cpp)
 add_library(Hazel::Engine ALIAS ${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME} PUBLIC vendor/spdlog/include)
+
 
 
 
